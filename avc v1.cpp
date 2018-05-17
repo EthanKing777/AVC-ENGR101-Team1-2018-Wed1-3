@@ -72,8 +72,8 @@ int calcError (int threshold) {
 
 void direction(unsigned char error, unsigned char prevError, unsigned char elasped, unsigned char prevtime) {
 	int vGo = 50;
-	unsigned char Kp = 0.001;
-	unsigned char Kd = 0.0;
+	unsigned char Kp = -0.005;
+	unsigned char Kd = -0.05;
 	int vLeft = 0;
 	int vRight = 0;
 	*if (error == 0){/this is where the comment was
