@@ -71,14 +71,14 @@ int calcError (int threshold) {
 }
 
 void direction(unsigned char error, unsigned char prevError, unsigned char elasped, unsigned char prevtime) {
-	int vGo = 50;
-	unsigned char Kp = -0.005;
+	int vGo = 50; /* speed when bot is moving forward */
+	unsigned char Kp = -0.005; /* amount bot reacts to a change in the error, is proportional to amount is turns by */
 	unsigned char Kd = -0.05;
 	int vLeft = 0;
 	int vRight = 0;
-	*if (error == 0){/this is where the comment was
-		int vLeft = -100;
-		int vRight = -100;
+	if (error == 0){
+		int vLeft = -100; /* is this when the camera cannot sense the line it moves backwards? one motor is upside down so*/ 		
+		int vRight = -100;/* both motors should not be set to the same value to move forwards or backwards or has that been fixed*/
 	} else {
 		unsigned char diff = (error-prevError)/(elasped-prevtime);
 		unsigned char dv = (error*Kp) + (diff*Kd);
@@ -87,7 +87,7 @@ void direction(unsigned char error, unsigned char prevError, unsigned char elasp
 	}*
 	unsigned char diff = (error-prevError)/(elasped-prevtime);
 	printf("%d\n",diff);
-	unsigned char dv = (error*Kp) + (diff*Kd);
+	unsigned char dv = (error*Kp) + (diff*Kd); /*should this be just dv = error*Kp ? */
 	vLeft = -1*(vGo+dv);
 	vRight = vGo-dv;
 	set_motor(1,vRight);
@@ -123,7 +123,7 @@ int main(){
 	long prevtime = 0;
 	long elasped = 0;
 	int x = 0;
-	int threshold = calcthreshold();
+	int threshold = calcthreshold(); /* gets threshold value which is whitest pixel value + darket pixel value / 2 */
 	for (x=0;x<60;x=x+1) {
 		gettimeofday(&t2,0);
 		elasped = (t2.tv_sec - t1.tv_sec)*1000000 + (t2.tv_usec - t1.tv_usec); 
