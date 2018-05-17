@@ -30,7 +30,7 @@ int calcthreshold () {
 	int min = 999; //Minimum light intensity
 	int columns = 320; //No. of columns in image (x coord)
 	int rows = 240; //No. of rows in image (y coord)
-	
+	take_picture();
 	/* For loop to read the all the values in the
 	 * middle row of the stored image  and store 
 	 * min and max values */
