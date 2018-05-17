@@ -3,11 +3,11 @@
 #include "E101.h"
 
 void connectServer () {
-	char serverAddr[15] = {"130.195.6.196"};
-	int port = 1024;
+	char serverAddr[15] = {"130.195.6.196"}; /* the ip address of the gate */
+	int port = 1024; /*port num of gate*/
 	char messege[24] = {"Please"};
 	int a = 1;
-	while (a!=0) {
+	while (a!=0) { /* gate shoul return 0 when connection is approved, run until it returns 0(not finished)*/
 		int a = connect_to_server (serverAddr, port);
 	}
 	int b = 1;
@@ -16,12 +16,12 @@ void connectServer () {
 	}
 	receive_from_server(messege);
 }
-int calcthreshold () {
+int calcthreshold () { /* calculates average to figure out what is white and what is black  */ 
 	unsigned char pix;
 	int i = 0;
 	int max = 0;
 	int min = 999;
-	int columns = 320;
+	int columns = 320; /*not 100% sure these values are the right way around will print camera image in lab to check */
 	int rows = 240;
 	for (i=0;i<columns;i=i+1) {
 		pix = get_pixel(rows/2,i,3);
