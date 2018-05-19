@@ -169,4 +169,5 @@ int main(){
 	set_motor(1,0);
 	set_motor(2,0);
 	fprintf(file, "Run finished\n\n"); //to differentiate between runs
+	fclose(file); // Close the file
 return 0;}
