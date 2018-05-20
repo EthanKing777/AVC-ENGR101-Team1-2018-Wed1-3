@@ -28,7 +28,7 @@ void connectServer () {
 	receive_from_server(message);
 	// think we now need to send the password back to the server 
 	int c = 1;
-	while (c!=1){ // not sure if this needs to be in while loop
+	while (c!=1){ // this could be a while ir sensor can sense the gate is still down
 		c=send_to_server(messege);
 	}
 	fprintf(file, "Gate Opened - Quad 1 start\n");
