@@ -26,6 +26,11 @@ void connectServer () {
 		sleep1(1,0); //to prevent flooding the server
 	}
 	receive_from_server(message);
+	// think we now need to send the password back to the server 
+	int c = 1;
+	while (c!=1){ // not sure if this needs to be in while loop
+		c=send_to_server(messege);
+	}
 	fprintf(file, "Gate Opened - Quad 1 start\n");
 }
 
