@@ -29,7 +29,7 @@ void connectServer () {
 	// think we now need to send the password back to the server 
 	int c = 1;
 	while (c!=1){ // this could be a while ir sensor can sense the gate is still down
-		c=send_to_server(messege);
+		c=send_to_server(messege); //does this need to be set to a variable c?
 	}
 	fprintf(file, "Gate Opened - Quad 1 start\n");
 }
